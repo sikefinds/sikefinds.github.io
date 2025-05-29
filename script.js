@@ -140,9 +140,49 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
     debouncedFilter(e.target.value);
 });
 
+// Modal functionality
+function setupModal() {
+    const modal = document.getElementById('signupModal');
+    const btn = document.getElementById('signupBtn');
+    const closeBtn = document.querySelector('.close-modal');
+    const form = document.getElementById('signupForm');
+
+    btn.onclick = () => {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    closeBtn.onclick = () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    window.onclick = (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    form.onsubmit = (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        // Aquí irá la lógica para procesar el email
+        modal.innerHTML = `
+            <div class="modal-content success">
+                <h2>¡Gracias por registrarte!</h2>
+                <p>Te hemos enviado el cupón a tu email:</p>
+                <p style="color: var(--accent-color); margin: 1rem 0;">${email}</p>
+                <button onclick="document.getElementById('signupModal').style.display='none';">Cerrar</button>
+            </div>
+        `;
+    }
+}
+
 // Initial display of products
 document.addEventListener('DOMContentLoaded', () => {
     displayProducts();
+    setupModal();
     
     // Add fade-in animation to header
     document.querySelector('.header-content').style.animation = 'fadeInUp 0.5s ease-out';

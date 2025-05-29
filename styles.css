@@ -1,13 +1,19 @@
 :root {
-    --primary-color: #1a1a1a;
+    --primary-color: #0a0a0a;
     --secondary-color: #00b4d8;
-    --background-color: #121212;
-    --card-background: #1e1e1e;
+    --background-color: #090909;
+    --card-background: #151515;
     --text-color: #ffffff;
-    --text-secondary: #a0a0a0;
-    --hover-color: #2d2d2d;
+    --text-secondary: #888888;
+    --hover-color: #202020;
     --accent-color: #00b4d8;
     --danger-color: #e63946;
+    --gradient-primary: linear-gradient(135deg, #00b4d8 0%, #00d4ff 100%);
+    --gradient-secondary: linear-gradient(135deg, #151515 0%, #202020 100%);
+    --neon-shadow: 0 0 10px rgba(0, 180, 216, 0.3),
+                   0 0 20px rgba(0, 180, 216, 0.2),
+                   0 0 30px rgba(0, 180, 216, 0.1);
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -38,23 +44,165 @@ header {
 .header-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.header-content h1 {
-    font-size: 2.8rem;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(45deg, var(--accent-color), #48cae4);
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0;
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: var(--neon-shadow);
+    transform: perspective(1000px) rotateX(10deg);
+    transition: transform 0.3s ease;
 }
 
-.header-content p {
-    font-size: 1.1rem;
+.main-title:hover {
+    transform: perspective(1000px) rotateX(0deg);
+}
+
+.subtitle {
+    font-size: 1.2rem;
     color: var(--text-secondary);
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.tiktok-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.coupon-btn {
+    display: block;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 16px;
+    position: relative;
+    background: linear-gradient(135deg, #00b4d8 0%, #0077be 100%);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.coupon-content {
+    background: var(--card-background);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.coupon-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.coupon-icon i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.coupon-icon .fa-shipping-fast {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.coupon-icon .fa-gift {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
+.coupon-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.coupon-label {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.coupon-value {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.tiktok-btn {
+    background: var(--gradient-secondary);
+    color: var(--text-color);
+    border: 1px solid var(--hover-color);
+}
+
+.coupon-btn {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.tiktok-btn:hover, .coupon-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--neon-shadow);
+}
+
+.tiktok-btn::before, .coupon-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.tiktok-btn:hover::before, .coupon-btn:hover::before {
+    left: 100%;
 }
 
 .search-container {
@@ -337,6 +485,99 @@ footer {
     animation: fadeInUp 0.3s ease-out;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    border: 1px solid var(--accent-color);
+    box-shadow: var(--neon-shadow);
+    transform: translateY(-20px);
+    opacity: 0;
+    animation: modalSlideIn 0.3s ease forwards;
+}
+
+@keyframes modalSlideIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    color: var(--text-color);
+    transform: rotate(90deg);
+}
+
+.modal-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    border: 2px solid var(--hover-color);
+    background: var(--primary-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.modal-content input:focus {
+    border-color: var(--accent-color);
+    box-shadow: var(--neon-shadow);
+    outline: none;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--gradient-primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-content button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--neon-shadow);
+}
+
 @media (max-width: 768px) {
     .products-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -351,5 +592,50 @@ footer {
 
     .header-content h1 {
         font-size: 2rem;
+    }
+}
+
+.coupon-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.4);
+}
+
+.coupon-btn:hover .coupon-content {
+    transform: scale(0.98);
+}
+
+.coupon-btn:hover .fa-shipping-fast {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
+.coupon-btn:hover .fa-gift {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.coupon-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: shineEffect 3s infinite;
+}
+
+@keyframes shineEffect {
+    0% {
+        transform: rotate(45deg) translateX(-100%);
+    }
+    100% {
+        transform: rotate(45deg) translateX(100%);
     }
 }
