@@ -2,6 +2,110 @@
 const products = [
     {
         id: 1,
+        title: "Conjunto Supreme Track",
+        image: "img/supreme-track-set.png",
+        productLink: "https://weidian.com/item.html?itemID=7484518956",
+        reviewLink: "https://vm.tiktok.com/ZNdknjRrn/",
+        reviewPlatform: "tiktok"
+    },
+    {
+        id: 2,
+        title: "Conjunto Nike Sportswear",
+        image: "img/nike-set.png",
+        productLink: "https://weidian.com/item.html?itemID=7482656767",
+        reviewLink: "https://vm.tiktok.com/ZNdknjRrn/",
+        reviewPlatform: "tiktok"
+    },
+    {
+        id: 3,
+        title: "Camiseta Ralph Lauren Negra",
+        image: "img/rl-black-tee.png",
+        productLink: "https://weidian.com/item.html?itemID=7459637495",
+        reviewLink: "https://vm.tiktok.com/ZNdknjRrn/",
+        reviewPlatform: "tiktok"
+    },
+    {
+        id: 4,
+        title: "Shorts Ralph Lauren Blancos",
+        image: "img/rl-white-shorts.png",
+        productLink: "https://weidian.com/item.html?itemID=7484518800",
+        reviewLink: "https://vm.tiktok.com/ZNdknjRrn/",
+        reviewPlatform: "tiktok"
+    },
+    {
+        id: 5,
+        title: "Camiseta Nocta Blanca",
+        image: "img/nocta-white-tee.png",
+        productLink: "https://weidian.com/item.html?itemID=7482589407",
+        reviewLink: "https://vm.tiktok.com/ZNdknjRrn/",
+        reviewPlatform: "tiktok"
+    },
+    {
+        id: 6,
+        title: "Shorts CP Company",
+        image: "img/cp-company-shorts.png",
+        productLink: "https://weidian.com/item.html?itemID=7473405860",
+        reviewLink: "https://vm.tiktok.com/ZNdknjRrn/",
+        reviewPlatform: "tiktok"
+    },
+    {
+        id: 7,
+        title: "Camiseta Nocta Negra",
+        image: "img/nocta-black-tee.png",
+        productLink: "https://weidian.com/item.html?itemID=7482631021",
+        reviewLink: "https://vm.tiktok.com/ZNdknjRrn/",
+        reviewPlatform: "tiktok"
+    },
+    {
+        id: 8,
+        title: "Shorts Stone Island Grises",
+        image: "img/stone-island-grey-shorts.png",
+        productLink: "https://weidian.com/item.html?itemID=7482703891",
+        reviewLink: "https://vm.tiktok.com/ZNdknjRrn/",
+        reviewPlatform: "tiktok"
+    },
+    {
+        id: 9,
+        title: "Camiseta Undefeated",
+        image: "img/undefeated-tee.png",
+        productLink: "https://weidian.com/item.html?itemID=7482648511",
+        reviewLink: "https://vm.tiktok.com/ZNdknjRrn/",
+        reviewPlatform: "tiktok"
+    },
+    {
+        id: 10,
+        title: "Shorts Stone Island Verdes",
+        image: "img/stone-island-green-shorts.png",
+        productLink: "https://weidian.com/item.html?itemID=7482692155",
+        reviewLink: "https://vm.tiktok.com/ZNdknjRrn/",
+        reviewPlatform: "tiktok"
+    },
+    {
+        id: 11,
+        title: "Cartera Vans",
+        image: "img/vans-wallet.png",
+        productLink: "https://weidian.com/item.html?itemID=7482175525",
+        reviewLink: "https://vm.tiktok.com/ZNdknjRrn/",
+        reviewPlatform: "tiktok"
+    },
+    {
+        id: 12,
+        title: "Abrebotellas Vans",
+        image: "img/vans-bottle-opener.png",
+        productLink: "https://weidian.com/item.html?itemID=7482674295",
+        reviewLink: "https://vm.tiktok.com/ZNdknjRrn/",
+        reviewPlatform: "tiktok"
+    },
+    {
+        id: 13,
+        title: "Sandalias Birkenstock",
+        image: "img/birkenstock-slippers.png",
+        productLink: "https://weidian.com/item.html?itemID=7457306479",
+        reviewLink: "https://vm.tiktok.com/ZNdknjRrn/",
+        reviewPlatform: "tiktok"
+    },
+    {
+        id: 14,
         title: "Travis Scott x Air Jordan 1 Low OG 'Reverse Mocha'",
         image: "img/Air-Jordan-1-Retro-Low-OG-SP-Travis-Scott-Reverse-Mocha_V2-Product-removebg-preview.png",
         productLink: "https://weidian.com/item.html?itemID=7369844463",
